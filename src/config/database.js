@@ -1,8 +1,10 @@
 import { Sequelize } from 'sequelize';
 
-const sequelize = new Sequelize(process.env.NAME_BD, process.env.USER_BD, process.env.PASSWORD_BD, {
-  host: process.env.SERVER_BD,
-
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PWD, {
+  host: process.env.DB_server,
+  define: {
+    freezeTableName: true,
+  },
   dialect: 'mssql',
   dialectOptions: {
     options: {

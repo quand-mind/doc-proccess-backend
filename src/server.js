@@ -6,6 +6,8 @@ import fs from 'fs';
 import bodyParser from 'body-parser';
 import multer from 'multer';
 import sql from 'mssql'
+import User from '../src/models/user.js'
+import System from '../src/models/System.js'
 
 import authRoutes from './routes/authRoutes.js';
 
@@ -33,12 +35,16 @@ const DOCUMENTS_PATH = './public/documents';
 
 // console.log(clientRoutes);
 
-app.use("/clients", clientRoutes);
 app.use("/auth", authRoutes);
-app.use("/maestros", maestrosRoutes);
-app.use("/campaign", campaignRoutes);
 
 app.listen(port, () => {
+  // System.syncSystem()
+  // System.newSystem({xnombre: 'Sis200', cusuarioencargado: 3, cusuario: 1})
+  // System.newSystem({xnombre: 'Arys Auto', cusuarioencargado: 2, cusuario: 1})
+  // System.newSystem({xnombre: 'ManMar', cusuarioencargado: 2, cusuario: 1})
+  // User.syncUser()
+  // User.newUser({xemail: 'admin@mail.com', xcontrasena: '1234', xnombre: 'Admin', xapellido: '', cusuario: 1})
+  // User.newUser({xemail: 'gidler@lamundialdeseguros.com', xcontrasena: 'Gi4321!', xnombre: 'Graciela', xapellido: 'Idler', cusuario: 1})
   console.log(`Example app listening on port ${port}`)
 })
 
