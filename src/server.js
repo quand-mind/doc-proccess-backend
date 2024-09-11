@@ -10,6 +10,7 @@ import User from '../src/models/user.js'
 import System from '../src/models/System.js'
 
 import authRoutes from './routes/authRoutes.js';
+import systemRoutes from './routes/systemRoutes.js';
 
 const { diskStorage } = multer;
 const app = express(); 
@@ -36,6 +37,7 @@ const DOCUMENTS_PATH = './public/documents';
 // console.log(clientRoutes);
 
 app.use("/auth", authRoutes);
+app.use("/system", systemRoutes);
 
 app.listen(port, () => {
   // System.syncSystem()
